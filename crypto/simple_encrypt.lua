@@ -29,8 +29,6 @@ type __magic<T, K> = {
 	__salt: number; -- types? oh you mean those decorative suggestions
 };
 
-type BitMask = number & { __tag: 'BitMask' };
-
 type _invers_hash<T...> = (T...) -> number & {
 	__metamagic: __magic<any, number>;
 };
