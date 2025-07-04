@@ -1,53 +1,7 @@
 --[[
-   File: misc.lua
-   Author: speedsterkawaii
+    lib
+]]--
 
-   Poorly written functions 💔💔 vanities macros aliases etc
-]]
-
---todo later;
-game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
-        --nyxsigned_module_injection_restart()
-         system("msg * TELEPORT FAILURE") -- cheap me
-    end
-end)
-
--- too lazy to do it but its possible, just not the best :c
-function firesignal(signal) -- this will fire all connections for a given RBXScriptSignal
-    if typeof(signal) ~= "RBXScriptSignal" then
-        error("Expected an RBXScriptSignal, got " .. typeof(signal)) --todo: replace error with warn later on because error has a problem where execution stops? idk its odd
-    end
-
-   -- I AM NOT DOING THE REST
-end
-
-function info(...) -- possible via print address but im external so
-  print(...)
-end
-
-function decompile(source) 
-    if source:IsA("LocalScript") then
-        return "-- Disassembled "..source.Name
-    elseif source:IsA("ModuleScript") then
-        return "-- Disassembled "..source.Name
-    else
-        return "-- why is bro decompiling a script"
-    end
-end
-
-function PROTOSMASHER_LOADED() -- i hate unnamed esp :c
-   return true
-end
-
--- more aliases
-function toclipboard(...)
-   setclipboard(...)
-end
-
-function setrbxclipboard(...)
-   setclipboard(...)
-end
 
 -- unused functions by people, just added though
 function random_string(length)
@@ -80,7 +34,8 @@ why do people need so much aliases just stick to one
 ]]
 -- i have 3 base64 decode and encode functions which 2 are in luau and one is in c
 -- and the c one has a problem where it doesnt decode it properly when sent the content
---it has a url decoding problem so im just gonna stick to this temporarily
+-- it has a url decoding problem so im just gonna stick to this temporarily
+
 local basedummy='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function base64_fake_encode(data)
     return ((data:gsub('.', function(x) 
@@ -110,28 +65,27 @@ function base64_fake_decode(data)
     end))
 end
 
-crypt = {} -- store
-base64 = {}
+crypt, base64 = {}, {}
 
 crypt.base64encode = function(arg1)
-return base64encode(arg1)
+   return base64encode(arg1)
 end
 
 crypt.base64decode = function(arg2)
-return base64decode(arg2)
+   return base64decode(arg2)
 end
 
 crypt.base64_encode = function(arg1)
-return base64encode(arg1)
+   return base64encode(arg1)
 end
 
 crypt.base64_decode = function(arg2)
-return base64decode(arg2)
+   return base64decode(arg2)
 end
 
 crypt.base64 = {}
 crypt.base64.encode = function(omg)
-return base64encode(omg)
+   return base64encode(omg)
 end
 
 crypt.base64.decode = function(stop_making_me_Write_this)
