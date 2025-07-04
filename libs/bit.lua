@@ -1,4 +1,7 @@
--- bit library 
+--[[
+   bit library 
+]]--
+
 local bit = {}
 
 function bit.bdiv(dividend, divisor)
@@ -40,6 +43,14 @@ function bit.bswap(val)
            ((val * 0x01000000) & 0xFF)
 end
 
+function bit.arshift(value, shiftCount)
+    local mask = 0x80000000
+    for i = 1, shiftCount do
+        value = (value // 2) | (value & mask)
+    end
+    return value
+end
+
 function bit.ror(val, by)
     local shift = by % 32
     return ((val * 2 ^ (32 - shift)) & 0xFFFFFFFF) | (val // 2 ^ shift)
@@ -64,14 +75,6 @@ end
 
 function bit.rshift(val, by)
     return math.floor(val / 2 ^ by)
-end
-
-function bit.arshift(value, shiftCount)
-    local mask = 0x80000000
-    for i = 1, shiftCount do
-        value = (value // 2) | (value & mask)
-    end
-    return value
 end
 
 return bit
