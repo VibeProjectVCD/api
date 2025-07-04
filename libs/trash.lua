@@ -1,9 +1,10 @@
 --[[
-    lib
+    lua-lib
+
+    unused func
 ]]--
 
 
--- unused functions by people, just added though
 function random_string(length)
     local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
@@ -27,16 +28,10 @@ function random_string(length)
     return randomString
 end
 
--- base64 
+-- base64 // not my implementation
 
---[[
-why do people need so much aliases just stick to one
-]]
--- i have 3 base64 decode and encode functions which 2 are in luau and one is in c
--- and the c one has a problem where it doesnt decode it properly when sent the content
--- it has a url decoding problem so im just gonna stick to this temporarily
+local basedummy = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
-local basedummy='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function base64_fake_encode(data)
     return ((data:gsub('.', function(x) 
         local r, b = '', x:byte()
@@ -84,12 +79,12 @@ crypt.base64_decode = function(arg2)
 end
 
 crypt.base64 = {}
-crypt.base64.encode = function(omg)
-   return base64encode(omg)
+crypt.base64.encode = function(enc)
+   return base64encode(enc)
 end
 
 crypt.base64.decode = function(stop_making_me_Write_this)
-return base64decode(stop_making_me_Write_this)
+    return base64decode(stop_making_me_Write_this)
 end
 
 base64.encode = function(vanity)
